@@ -2,6 +2,7 @@ export function ExercisesNew(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
+    // eslint-disable-next-line react/prop-types
     props.onCreateExercise(params, () => event.target.reset());
   };
 
