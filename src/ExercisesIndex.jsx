@@ -5,9 +5,9 @@ export function ExercisesIndex(props) {
       {props.exercises.map((exercise) => (
         <div key={exercise.id}>
           <h2>{exercise.name}</h2>
-          <p>Description: {exercise.description}</p>
           <p>{exercise.image_url}</p>
           <p>{exercise.video_url}</p>
+          <button onClick={() => props.onShowExercise(exercise)}>More info</button>
         </div>
       ))}
     </div>
