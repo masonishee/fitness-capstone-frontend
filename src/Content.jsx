@@ -7,6 +7,7 @@ import { ExercisesIndex } from "./ExercisesIndex";
 import { ExercisesNew } from "./ExercisesNew";
 import { ExercisesShow } from "./ExercisesShow";
 import { RoutinesIndex } from "./RoutinesIndex";
+import { RoutinesShow } from "./RoutinesShow";
 import { Modal } from "./Modal";
 
 export function Content() {
@@ -14,6 +15,8 @@ export function Content() {
   const [routines, setRoutines] = useState([]);
   const [isExercisesShowVisible, setIsExercisesShowVisible] = useState(false);
   const [currentExercise, setCurrentExercise] = useState({});
+  const [isRoutinesShowVisible, setIsRoutinesShowVisible] = useState(false);
+  const [currentRoutine, setCurrentRoutine] = useState({});
 
   const handleIndexExercises = () => {
     console.log("handleIndexExercises");
@@ -50,6 +53,17 @@ export function Content() {
     setIsExercisesShowVisible(false);
   };
 
+  const handleShowRoutine = (routine) => {
+    console.log("handleShowRoutine", routine);
+    setIsRoutinesShowVisible(true);
+    setCurrentRoutine(routine);
+  };
+
+  const handleCloseRoutine = () => {
+    console.log("handleClose");
+    setIsRoutinesShowVisible(false);
+  };
+
   useEffect(handleIndexRoutines, []);
 
   useEffect(handleIndexExercises, []);
@@ -60,7 +74,10 @@ export function Content() {
       <Modal show={isExercisesShowVisible} onClose={handleClose}>
         <ExercisesShow exercise={currentExercise} />
       </Modal>
-      <RoutinesIndex routines={routines} />
+      <RoutinesIndex routines={routines} onShowRoutine={handleShowRoutine} />
+      <Modal show={isRoutinesShowVisible} onClose={handleCloseRoutine}>
+        <RoutinesShow routine={currentRoutine} />
+      </Modal>
       <Signup />
       <Login />
       <LogoutLink />

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 export function RoutinesIndex(props) {
   return (
     <div>
@@ -7,6 +8,7 @@ export function RoutinesIndex(props) {
           <h2>{routine.user.name}</h2>
           <p>{routine.exercise.name}</p>
           <p>Reps: {routine.reps}</p>
+          <button onClick={() => props.onShowRoutine(routine)}>More info</button>
         </div>
       ))}
     </div>
