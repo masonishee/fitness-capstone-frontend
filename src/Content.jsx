@@ -6,10 +6,12 @@ import { LogoutLink } from "./LogoutLink";
 import { ExercisesIndex } from "./ExercisesIndex";
 import { ExercisesNew } from "./ExercisesNew";
 import { ExercisesShow } from "./ExercisesShow";
+import { RoutinesIndex } from "./RoutinesIndex";
 import { Modal } from "./Modal";
 
 export function Content() {
   const [exercises, setExercises] = useState([]);
+  const [routines, setRoutines] = useState([]);
   const [isExercisesShowVisible, setIsExercisesShowVisible] = useState(false);
   const [currentExercise, setCurrentExercise] = useState({});
 
@@ -18,6 +20,14 @@ export function Content() {
     axios.get("http://localhost:3000/exercises.json").then((response) => {
       console.log(response.data);
       setExercises(response.data);
+    });
+  };
+
+  const handleIndexRoutines = () => {
+    console.log("handleIndexRoutines");
+    axios.get("http://localhost:3000/routines.json").then((response) => {
+      console.log(response.data);
+      setRoutines(response.data);
     });
   };
 
@@ -40,6 +50,8 @@ export function Content() {
     setIsExercisesShowVisible(false);
   };
 
+  useEffect(handleIndexRoutines, []);
+
   useEffect(handleIndexExercises, []);
   return (
     <div>
@@ -48,6 +60,7 @@ export function Content() {
       <Modal show={isExercisesShowVisible} onClose={handleClose}>
         <ExercisesShow exercise={currentExercise} />
       </Modal>
+      <RoutinesIndex routines={routines} />
       <Signup />
       <Login />
       <LogoutLink />
