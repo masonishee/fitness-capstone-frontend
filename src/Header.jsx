@@ -11,6 +11,7 @@ export function Header() {
         <Link to="/exercisenew">New Exercise</Link>
         <Link to="/exerciseindex">All Exercises</Link>
         <Link to="/routinesindex">All Routines</Link>
+        <Link to="/workoutsindex">All Workouts</Link>
       </nav>
     </header>
   );
