@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Login } from "./Login";
 import { Signup } from "./Signup";
@@ -69,18 +70,28 @@ export function Content() {
   useEffect(handleIndexExercises, []);
   return (
     <div>
-      <ExercisesNew onCreateExercise={handleCreateExercise} />
-      <ExercisesIndex exercises={exercises} onShowExercise={handleShowExercise} />
+      <Routes>
+        <Route path="/ExerciseNew" element={<ExercisesNew onCreateExercise={handleCreateExercise} />} />
+        <Route
+          path="/ExerciseIndex"
+          element={<ExercisesIndex exercises={exercises} onShowExercise={handleShowExercise} />}
+        />
+        <Route
+          path="/RoutinesIndex"
+          element={<RoutinesIndex routines={routines} onShowRoutine={handleShowRoutine} />}
+        />
+        <Route path="/Signup" element={<Signup />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Logout" element={<LogoutLink />} />
+      </Routes>
+
       <Modal show={isExercisesShowVisible} onClose={handleClose}>
         <ExercisesShow exercise={currentExercise} />
       </Modal>
-      <RoutinesIndex routines={routines} onShowRoutine={handleShowRoutine} />
+
       <Modal show={isRoutinesShowVisible} onClose={handleCloseRoutine}>
         <RoutinesShow routine={currentRoutine} />
       </Modal>
-      <Signup />
-      <Login />
-      <LogoutLink />
     </div>
   );
 }
