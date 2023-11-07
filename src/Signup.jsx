@@ -22,28 +22,54 @@ export function Signup() {
   };
 
   return (
-    <div id="signup">
-      <h1>Signup</h1>
-      <ul>
-        {errors.map((error) => (
-          <li key={error}>{error}</li>
-        ))}
-      </ul>
-      <form onSubmit={handleSubmit}>
+    <div id="signup" className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-md">
         <div>
-          Name: <input name="name" type="text" />
+          <h1 className="text-3xl font-bold text-center">Signup</h1>
+          <ul className="text-red-500">
+            {errors.map((error) => (
+              <li key={error}>{error}</li>
+            ))}
+          </ul>
         </div>
-        <div>
-          Email: <input name="email" type="email" />
-        </div>
-        <div>
-          Password: <input name="password" type="password" />
-        </div>
-        <div>
-          Password confirmation: <input name="password_confirmation" type="password" />
-        </div>
-        <button type="submit">Signup</button>
-      </form>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+              Name:
+            </label>
+            <input name="name" type="text" className="mt-1 p-3 block w-full border border-gray-300 rounded-md" />
+          </div>
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              Email:
+            </label>
+            <input name="email" type="email" className="mt-1 p-3 block w-full border border-gray-300 rounded-md" />
+          </div>
+          <div>
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+              Password:
+            </label>
+            <input
+              name="password"
+              type="password"
+              className="mt-1 p-3 block w-full border border-gray-300 rounded-md"
+            />
+          </div>
+          <div>
+            <label htmlFor="password_confirmation" className="block text-sm font-medium text-gray-700">
+              Password confirmation:
+            </label>
+            <input
+              name="password_confirmation"
+              type="password"
+              className="mt-1 p-3 block w-full border border-gray-300 rounded-md"
+            />
+          </div>
+          <button type="submit" className="w-full bg-indigo-600 text-white p-3 rounded-md hover:bg-indigo-700">
+            Sign Up
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
