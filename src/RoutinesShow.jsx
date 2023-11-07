@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 export function RoutinesShow(props) {
   return (
     <div className="text-center">
