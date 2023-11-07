@@ -11,6 +11,12 @@ export function WorkoutsIndex(props) {
               <h2 className="text-2xl font-bold mb-2">
                 {workout.user.name}'s {workout.name} Workout
               </h2>
+              {workout.routines.map((routine) => (
+                <div key={routine.id}>
+                  <p>Exercise: {routine.exercise}</p>
+                  <p>Reps: {routine.reps}</p>
+                </div>
+              ))}
             </div>
           ))}
         </div>

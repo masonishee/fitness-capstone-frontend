@@ -25,13 +25,13 @@ export function ExercisesNew(props) {
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700" htmlFor="image_url">
-              Image:
+              Image URL:
             </label>
             <input name="image_url" type="url" className="mt-1 p-3 block w-full border border-gray-300 rounded-md" />
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700" htmlFor="video_url">
-              Video:
+              Video URL:
             </label>
             <input name="video_url" type="url" className="mt-1 p-3 block w-full border border-gray-300 rounded-md" />
           </div>
