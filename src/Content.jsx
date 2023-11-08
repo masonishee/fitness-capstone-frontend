@@ -8,6 +8,7 @@ import { ExercisesIndex } from "./ExercisesIndex";
 import { ExercisesNew } from "./ExercisesNew";
 import { ExercisesShow } from "./ExercisesShow";
 import { WorkoutsIndex } from "./WorkoutsIndex";
+import { RoutinesNew } from "./RoutinesNew";
 import { Modal } from "./Modal";
 
 export function Content() {
@@ -15,6 +16,7 @@ export function Content() {
   const [isExercisesShowVisible, setIsExercisesShowVisible] = useState(false);
   const [currentExercise, setCurrentExercise] = useState({});
   const [workouts, setWorkouts] = useState([]);
+  const [routines, setRoutines] = useState([]);
 
   const handleIndexExercises = () => {
     console.log("handleIndexExercises");
@@ -36,6 +38,14 @@ export function Content() {
     console.log("handleCreateExercise", params);
     axios.post("http://localhost:3000/exercises.json", params).then((response) => {
       setExercises([...exercises, response.data]);
+      successCallback();
+    });
+  };
+
+  const handleCreateRoutine = (params, successCallback) => {
+    console.log("handleCreateRoutine", params);
+    axios.post("http://localhost:3000/routines.json", params).then((response) => {
+      setRoutines([...routines, response.data]);
       successCallback();
     });
   };
@@ -64,6 +74,7 @@ export function Content() {
         />
 
         <Route path="/WorkoutsIndex" element={<WorkoutsIndex workouts={workouts} />} />
+        <Route path="/RoutinesNew" element={<RoutinesNew onCreateRoutine={handleCreateRoutine} />} />
         <Route path="/Signup" element={<Signup />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Logout" element={<LogoutLink />} />

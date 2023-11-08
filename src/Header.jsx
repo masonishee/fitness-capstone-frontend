@@ -20,6 +20,9 @@ export function Header() {
           <Link to="/exercisenew" className="mr-4 text-lg font-semibold hover:text-gray-300">
             New Exercise
           </Link>
+          <Link to="/routinesnew" className="mr-4 text-lg font-semibold hover:text-gray-300">
+            New Routine
+          </Link>
           <Link to="/exerciseindex" className="mr-4 text-lg font-semibold hover:text-gray-300">
             All Exercises
           </Link>
