@@ -7,18 +7,13 @@ import { LogoutLink } from "./LogoutLink";
 import { ExercisesIndex } from "./ExercisesIndex";
 import { ExercisesNew } from "./ExercisesNew";
 import { ExercisesShow } from "./ExercisesShow";
-import { RoutinesIndex } from "./RoutinesIndex";
-import { RoutinesShow } from "./RoutinesShow";
 import { WorkoutsIndex } from "./WorkoutsIndex";
 import { Modal } from "./Modal";
 
 export function Content() {
   const [exercises, setExercises] = useState([]);
-  const [routines, setRoutines] = useState([]);
   const [isExercisesShowVisible, setIsExercisesShowVisible] = useState(false);
   const [currentExercise, setCurrentExercise] = useState({});
-  const [isRoutinesShowVisible, setIsRoutinesShowVisible] = useState(false);
-  const [currentRoutine, setCurrentRoutine] = useState({});
   const [workouts, setWorkouts] = useState([]);
 
   const handleIndexExercises = () => {
@@ -26,14 +21,6 @@ export function Content() {
     axios.get("http://localhost:3000/exercises.json").then((response) => {
       console.log(response.data);
       setExercises(response.data);
-    });
-  };
-
-  const handleIndexRoutines = () => {
-    console.log("handleIndexRoutines");
-    axios.get("http://localhost:3000/routines.json").then((response) => {
-      console.log(response.data);
-      setRoutines(response.data);
     });
   };
 
@@ -64,19 +51,6 @@ export function Content() {
     setIsExercisesShowVisible(false);
   };
 
-  const handleShowRoutine = (routine) => {
-    console.log("handleShowRoutine", routine);
-    setIsRoutinesShowVisible(true);
-    setCurrentRoutine(routine);
-  };
-
-  const handleCloseRoutine = () => {
-    console.log("handleClose");
-    setIsRoutinesShowVisible(false);
-  };
-
-  useEffect(handleIndexRoutines, []);
-
   useEffect(handleIndexExercises, []);
 
   useEffect(handleIndexWorkouts, []);
@@ -88,10 +62,7 @@ export function Content() {
           path="/ExerciseIndex"
           element={<ExercisesIndex exercises={exercises} onShowExercise={handleShowExercise} />}
         />
-        <Route
-          path="/RoutinesIndex"
-          element={<RoutinesIndex routines={routines} onShowRoutine={handleShowRoutine} />}
-        />
+
         <Route path="/WorkoutsIndex" element={<WorkoutsIndex workouts={workouts} />} />
         <Route path="/Signup" element={<Signup />} />
         <Route path="/Login" element={<Login />} />
@@ -100,10 +71,6 @@ export function Content() {
 
       <Modal show={isExercisesShowVisible} onClose={handleClose}>
         <ExercisesShow exercise={currentExercise} />
-      </Modal>
-
-      <Modal show={isRoutinesShowVisible} onClose={handleCloseRoutine}>
-        <RoutinesShow routine={currentRoutine} />
       </Modal>
     </div>
   );

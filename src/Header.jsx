@@ -23,9 +23,6 @@ export function Header() {
           <Link to="/exerciseindex" className="mr-4 text-lg font-semibold hover:text-gray-300">
             All Exercises
           </Link>
-          <Link to="/routinesindex" className="mr-4 text-lg font-semibold hover:text-gray-300">
-            All Routines
-          </Link>
           <Link to="/workoutsindex" className="mr-4 text-lg font-semibold hover:text-gray-300">
             All Workouts
           </Link>
