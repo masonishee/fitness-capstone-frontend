@@ -1,18 +1,18 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 export function DropdownMenu({ exercises, workouts }) {
   return (
-    <div>
+    <div className="bg-gradient-to-r from-fuchsia-500 to-purple-500 p-8 rounded-lg shadow-lg mb-8">
       <div className="mb-6">
         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="workout_id">
           Choose a workout:
         </label>
         <select
           name="workout_id"
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800 leading-tight focus:outline-none focus:shadow-outline bg-gradient-to-r from-fuchsia-300 to-purple-300"
         >
           <option value="">Choose a workout</option>
           {workouts.map((workout) => (
@@ -29,7 +29,7 @@ export function DropdownMenu({ exercises, workouts }) {
         </label>
         <select
           name="exercise_id"
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800 leading-tight focus:outline-none focus:shadow-outline bg-gradient-to-r from-fuchsia-300 to-purple-300"
         >
           <option value="">Choose an exercise</option>
           {exercises.map((exercise) => (
@@ -38,6 +38,17 @@ export function DropdownMenu({ exercises, workouts }) {
             </option>
           ))}
         </select>
+      </div>
+
+      <div className="mb-6">
+        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="reps">
+          Reps:
+        </label>
+        <input
+          name="reps"
+          type="text"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800 leading-tight focus:outline-none focus:shadow-outline bg-gradient-to-r from-fuchsia-300 to-purple-300"
+        />
       </div>
     </div>
   );
@@ -62,32 +73,27 @@ export function RoutinesNew(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
-    // eslint-disable-next-line react/prop-types
     props.onCreateRoutine(params, () => event.target.reset());
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-      <h1 className="text-3xl text-center font-bold mb-8">New Routine</h1>
-      <DropdownMenu exercises={exercises} workouts={workouts} />
-
-      <div className="mb-6">
-        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="reps">
-          Reps:
-        </label>
-        <input
-          name="reps"
-          type="text"
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-        />
-      </div>
-      <button
-        type="submit"
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-fuchsia-500 to-purple-500 px-4">
+      <form
+        onSubmit={handleSubmit}
+        className="max-w-md w-full space-y-8 p-8 bg-gradient-to-r from-fuchsia-300 to-purple-300 rounded-lg shadow-md"
       >
-        Create routine
-      </button>
-    </form>
+        <h1 className="text-3xl font-bold text-center text-gray-700">New Routine</h1>
+        <DropdownMenu exercises={exercises} workouts={workouts} />
+
+        <div className="mb-6">{/* Additional form content here */}</div>
+        <button
+          type="submit"
+          className="w-full bg-gradient-to-r from-fuchsia-500 to-purple-500 text-white p-3 rounded-md hover:bg-pink-600"
+        >
+          Create routine
+        </button>
+      </form>
+    </div>
   );
 }
 

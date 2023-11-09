@@ -22,10 +22,13 @@ export function Signup() {
   };
 
   return (
-    <div id="signup" className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div
+      id="signup"
+      className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-500 via-pink-500 to-red-500"
+    >
       <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-md">
         <div>
-          <h1 className="text-3xl font-bold text-center">Signup</h1>
+          <h1 className="text-3xl font-bold text-center text-gray-800">Signup</h1>
           <ul className="text-red-500">
             {errors.map((error) => (
               <li key={error}>{error}</li>
@@ -65,7 +68,7 @@ export function Signup() {
               className="mt-1 p-3 block w-full border border-gray-300 rounded-md"
             />
           </div>
-          <button type="submit" className="w-full bg-indigo-600 text-white p-3 rounded-md hover:bg-indigo-700">
+          <button type="submit" className="w-full bg-blue-500 hover:bg-blue-700 text-white p-3 rounded-md">
             Sign Up
           </button>
         </form>

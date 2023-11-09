@@ -1,6 +1,7 @@
 import axios from "axios";
 import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { HomePage } from "./HomePage";
 import { Login } from "./Login";
 import { Signup } from "./Signup";
 import { LogoutLink } from "./LogoutLink";
@@ -78,6 +79,7 @@ export function Content() {
         <Route path="/Signup" element={<Signup />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Logout" element={<LogoutLink />} />
+        <Route path="/HomePage" element={<HomePage />} />
       </Routes>
 
       <Modal show={isExercisesShowVisible} onClose={handleClose}>

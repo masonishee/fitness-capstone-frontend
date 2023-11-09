@@ -6,7 +6,8 @@ if (jwt) {
   axios.defaults.headers.common["Authorization"] = `Bearer ${jwt}`;
 }
 
-export function Login() {
+// eslint-disable-next-line no-unused-vars
+export function Login(props) {
   const [errors, setErrors] = useState([]);
 
   const handleSubmit = (event) => {
@@ -20,7 +21,7 @@ export function Login() {
         axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
         localStorage.setItem("jwt", response.data.jwt);
         event.target.reset();
-        window.location.href = "/"; // Change this to hide a modal, redirect to a specific page, etc.
+        window.location.href = "/workoutsindex";
       })
       .catch((error) => {
         console.log(error.response);
@@ -29,10 +30,13 @@ export function Login() {
   };
 
   return (
-    <div id="login" className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div
+      id="login"
+      className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-500 via-pink-500 to-red-500"
+    >
       <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-md">
         <div>
-          <h1 className="text-3xl font-bold text-center">Login</h1>
+          <h1 className="text-3xl font-bold text-center text-gray-800">Login</h1>
           <ul className="text-red-500">
             {errors.map((error) => (
               <li key={error}>{error}</li>
@@ -56,7 +60,7 @@ export function Login() {
               className="mt-1 p-3 block w-full border border-gray-300 rounded-md"
             />
           </div>
-          <button type="submit" className="w-full bg-indigo-600 text-white p-3 rounded-md hover:bg-indigo-700">
+          <button type="submit" className="w-full bg-blue-500 hover:bg-blue-700 text-white p-3 rounded-md">
             Login
           </button>
         </form>

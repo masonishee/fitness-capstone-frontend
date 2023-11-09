@@ -4,18 +4,28 @@ import ReactPlayer from "react-player";
 
 export function WorkoutsIndex(props) {
   return (
-    <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+    <div className="min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 py-6 flex flex-col justify-center sm:py-12">
       <div className="relative py-3 sm:max-w-xl sm:mx-auto">
-        <div className="relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
-          <h1 className="text-3xl text-center font-bold mb-8">All Workouts</h1>
-          {props.workouts.map((workout) => (
-            <div key={workout.id} className="mb-6 p-6 bg-gray-50 rounded-lg shadow-md">
-              <h2 className="text-2xl font-bold mb-2">
+        <div className="relative px-4 py-10 bg-gradient-to-r from-purple-300 via-pink-400 to-red-400 bg-opacity-70 mx-8 md:mx-0 shadow-lg rounded-3xl sm:p-10">
+          <h1 className="text-3xl text-center font-bold mb-8 text-gray-800">All Workouts</h1>
+          {props.workouts.map((workout, index) => (
+            <div
+              key={workout.id}
+              className={`mb-6 p-6 bg-gradient-to-r from-purple-200 via-pink-300 to-red-300 rounded-lg shadow-md ${
+                index > 0 ? "mt-6" : ""
+              }`}
+            >
+              <h2 className="text-2xl font-bold mb-2 text-gray-800">
                 {workout.user.name}'s {workout.name} Workout
               </h2>
-              {workout.routines.map((routine) => (
-                <div key={routine.id} className="mb-6 p-6 bg-gray-50 rounded-lg shadow-md">
-                  <p className="text-lg font-bold mb-2">
+              {workout.routines.map((routine, index) => (
+                <div
+                  key={routine.id}
+                  className={`mb-6 p-6 bg-gradient-to-r from-purple-100 via-pink-200 to-red-200 rounded-lg shadow-md ${
+                    index > 0 ? "mt-6" : ""
+                  }`}
+                >
+                  <p className="text-lg font-bold mb-2 text-gray-800">
                     Exercise: {routine.exercise ? routine.exercise.name : "no name"}
                   </p>
                   <p className="text-base text-gray-700 mb-2">Reps: {routine.reps}</p>
