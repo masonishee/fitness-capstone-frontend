@@ -1,13 +1,22 @@
 /* eslint-disable react/no-unescaped-entities */
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
+import React, { useState } from "react";
 import ReactPlayer from "react-player";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 
 export function WorkoutsIndex(props) {
+  const [date, setDate] = useState(new Date());
+
   return (
     <div className="min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 py-6 flex flex-col justify-center sm:py-12">
       <div className="relative py-3 sm:max-w-xl sm:mx-auto">
         <div className="relative px-4 py-10 bg-gradient-to-r from-purple-300 via-pink-400 to-red-400 bg-opacity-70 mx-8 md:mx-0 shadow-lg rounded-3xl sm:p-10">
           <h1 className="text-3xl text-center font-bold mb-8 text-gray-800">All Workouts</h1>
+          <div className="mb-6">
+            <Calendar value={date} onChange={setDate} />
+          </div>
           {props.workouts.map((workout, index) => (
             <div
               key={workout.id}
