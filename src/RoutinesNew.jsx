@@ -85,7 +85,7 @@ export function RoutinesNew(props) {
         <h1 className="text-3xl font-bold text-center text-gray-700">New Routine</h1>
         <DropdownMenu exercises={exercises} workouts={workouts} />
 
-        <div className="mb-6">{/* Additional form content here */}</div>
+        <div className="mb-6">{}</div>
         <button
           type="submit"
           className="w-full bg-gradient-to-r from-fuchsia-500 to-purple-500 text-white p-3 rounded-md hover:bg-pink-600"

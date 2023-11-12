@@ -6,7 +6,7 @@ export function ExercisesIndex(props) {
     <div className="min-h-screen bg-gradient-to-r from-fuchsia-500 via-purple-500 to-indigo-500 py-6 flex flex-col justify-center sm:py-12">
       <div className="relative py-3 sm:max-w-xl sm:mx-auto">
         <div className="relative px-4 py-10 bg-gradient-to-r from-fuchsia-200 via-purple-200 to-indigo-200 bg-opacity-70 mx-8 md:mx-0 shadow-lg rounded-3xl sm:p-10">
-          <h1 className="text-3xl text-center font-bold mb-8 text-gray-800">All Exercises</h1>
+          <h1 className="text-3xl text-center font-bold mb-8 text-gray-800">Exercises</h1>
           {props.exercises.map((exercise, index) => (
             <div
               key={exercise.id}

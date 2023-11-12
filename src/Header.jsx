@@ -33,10 +33,10 @@ export function Header() {
             New Routine
           </Link>
           <Link to="/exerciseindex" className="mr-4 text-lg font-semibold hover:text-gray-300">
-            All Exercises
+            Exercises
           </Link>
           <Link to="/workoutsindex" className="mr-4 text-lg font-semibold hover:text-gray-300">
-            All Workouts
+            Workouts
           </Link>
         </div>
       </nav>

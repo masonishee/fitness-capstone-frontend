@@ -13,7 +13,7 @@ export function WorkoutsIndex(props) {
     <div className="min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 py-6 flex flex-col justify-center sm:py-12">
       <div className="relative py-3 sm:max-w-xl sm:mx-auto">
         <div className="relative px-4 py-10 bg-gradient-to-r from-purple-300 via-pink-400 to-red-400 bg-opacity-70 mx-8 md:mx-0 shadow-lg rounded-3xl sm:p-10">
-          <h1 className="text-3xl text-center font-bold mb-8 text-gray-800">All Workouts</h1>
+          <h1 className="text-3xl text-center font-bold mb-8 text-gray-800">Workouts</h1>
           <div className="mb-6">
             <Calendar value={date} onChange={setDate} />
           </div>
